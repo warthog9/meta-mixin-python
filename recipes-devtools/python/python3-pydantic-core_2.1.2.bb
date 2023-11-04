@@ -13,6 +13,7 @@ DEPENDS += "\
 "
 
 inherit pypi python_maturin
+#inherit pypi cargo
 
 INSANE_SKIP:${PN}:append = "already-stripped"
 
@@ -93,6 +94,12 @@ SRC_URI += " \
 do_compile:prepend() {
         printf '[target.%s]\n' "x86_64-unknown-linux-gnu" > "${CARGO_HOME}/config"
         printf "linker = '%s'\n\n" "${WORKDIR}/wrapper/build-rust-cc" >> "${CARGO_HOME}/config"
+        printf "ar = '%s'\n\n" "${WORKDIR}/wrapper/build-rust-ar" >> "${CARGO_HOME}/config"
         printf '[target.%s]\n' "aarch64-poky-linux-gnu" >> "${CARGO_HOME}/config"
         printf "linker = '%s'\n\n" "${WORKDIR}/wrapper/target-rust-cc" >> "${CARGO_HOME}/config"
+        printf "ar = '%s'\n\n" "${WORKDIR}/wrapper/target-rust-ar" >> "${CARGO_HOME}/config"
+        printf "[build]\ntarget = '%s'\n\n" "aarch64-unknown-linux-gnu" >> "${CARGO_HOME}/config"
+
+        export PYO3_CROSS_PYTHON_VERSION="3.10"
+        export PYO3_CROSS_LIB_DIR="${WORKDIR}/recipe-sysroot/usr/lib/python3.10/"
 }
