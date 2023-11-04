@@ -10,10 +10,15 @@ SRC_URI[sha256sum] = "6e35963ab0896afab527f092fd43d6dd97cce1b1e55ea190030d25e2d1
 inherit pypi cargo python_setuptools_build_meta
 
 DEPENDS += "\
-    rust-native \
-    python3-setuptools-rust-native \
-    python3-semantic-version-native \
+    rust \
+    python3-setuptools-rust \
+    python3-semantic-version \
 "
+#RUSTLIB_DEP ?= "libstd-rs"
+## Ensure we get the right rust variant
+#DEPENDS:append:class-target = " rust-native ${RUSTLIB_DEP}"
+#DEPENDS:append:class-nativesdk = " rust-native ${RUSTLIB_DEP}"
+#DEPENDS:append:class-native = " rust-native"
 
 BBCLASSEXTEND = "native nativesdk"
 
