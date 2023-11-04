@@ -12,4 +12,7 @@ SRC_URI[sha256sum] = "a4dc2a3448fb059000868d7eb774dd71229261b6d49b6851e7849bec69
 
 S = "${WORKDIR}/starlette-0.31.1"
 
-RDEPENDS_${PN} = "python3-anyio"
+RDEPENDS_${PN} = " \
+	python3-anyio \
+	python3-multipart \
+"
