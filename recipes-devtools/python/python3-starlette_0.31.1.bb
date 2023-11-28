@@ -14,5 +14,5 @@ S = "${WORKDIR}/starlette-0.31.1"
 
 RDEPENDS_${PN} = " \
 	python3-anyio \
-	python3-multipart \
+	python3-python-multipart \
 "

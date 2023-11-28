@@ -1,5 +1,5 @@
 SUMMARY = "Parser for multipart/form-data"
-HOMEPAGE = "https://github.com/prometheus/client_python"
+HOMEPAGE = "https://github.com/defnull/multipart"
 SECTION = "devel/python"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=19c02e41e90781e84f25328b600b73d1"
