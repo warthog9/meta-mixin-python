@@ -1,4 +1,8 @@
-SUMMARY = "Pydantic Core validation logic for pydantic written in rust"
+SUMMARY = "Provides the core functionality for pydantic validation and serialization."
+DESCRIPTION = "This package provides the core functionality for \
+pydantic validation and serialization.\
+\
+Pydantic-core is currently around 17x faster than pydantic V1."
 HOMEPAGE = "https://github.com/pydantic/pydantic-core"
 SECTION = "devel/python"
 LICENSE = "MIT"
@@ -6,14 +10,21 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=ab599c188b4a314d2856b3a55030c75c"
 
 SRC_URI[sha256sum] = "d2c790f0d928b672484eac4f5696dd0b78f3d6d148a641ea196eb49c0875e30a"
 
-PYPI_PACKAGE = "pydantic_core"
-
 DEPENDS += "\
+    python3-maturin-native \
     python3-typing-extensions \
 "
 
-inherit pypi python_maturin
-#inherit pypi cargo
+PYPI_PACKAGE = "pydantic_core"
+
+
+inherit pypi cargo-update-recipe-crates python_maturin
+
+S = "${WORKDIR}/pydantic_core-${PV}"
+
+PYPI_ARCHIVE_NAME = "pydantic_core-${PV}.${PYPI_PACKAGE_EXT}"
+
+RDEPENDS:${PN} += "python3-typing-extensions"
 
 INSANE_SKIP:${PN}:append = "already-stripped"
 
@@ -91,15 +102,15 @@ SRC_URI += " \
     crate://crates.io/windows_x86_64_msvc/0.42.2 \
 "
 
-do_compile:prepend() {
-        printf '[target.%s]\n' "x86_64-unknown-linux-gnu" > "${CARGO_HOME}/config"
-        printf "linker = '%s'\n\n" "${WORKDIR}/wrapper/build-rust-cc" >> "${CARGO_HOME}/config"
-        printf "ar = '%s'\n\n" "${WORKDIR}/wrapper/build-rust-ar" >> "${CARGO_HOME}/config"
-        printf '[target.%s]\n' "aarch64-poky-linux-gnu" >> "${CARGO_HOME}/config"
-        printf "linker = '%s'\n\n" "${WORKDIR}/wrapper/target-rust-cc" >> "${CARGO_HOME}/config"
-        printf "ar = '%s'\n\n" "${WORKDIR}/wrapper/target-rust-ar" >> "${CARGO_HOME}/config"
-        printf "[build]\ntarget = '%s'\n\n" "aarch64-unknown-linux-gnu" >> "${CARGO_HOME}/config"
-
-        export PYO3_CROSS_PYTHON_VERSION="3.10"
-        export PYO3_CROSS_LIB_DIR="${WORKDIR}/recipe-sysroot/usr/lib/python3.10/"
-}
+#do_compile:prepend() {
+#        printf '[target.%s]\n' "x86_64-unknown-linux-gnu" > "${CARGO_HOME}/config"
+#        printf "linker = '%s'\n\n" "${WORKDIR}/wrapper/build-rust-cc" >> "${CARGO_HOME}/config"
+#        printf "ar = '%s'\n\n" "${WORKDIR}/wrapper/build-rust-ar" >> "${CARGO_HOME}/config"
+#        printf '[target.%s]\n' "aarch64-poky-linux-gnu" >> "${CARGO_HOME}/config"
+#        printf "linker = '%s'\n\n" "${WORKDIR}/wrapper/target-rust-cc" >> "${CARGO_HOME}/config"
+#        printf "ar = '%s'\n\n" "${WORKDIR}/wrapper/target-rust-ar" >> "${CARGO_HOME}/config"
+#        printf "[build]\ntarget = '%s'\n\n" "aarch64-unknown-linux-gnu" >> "${CARGO_HOME}/config"
+#
+#        export PYO3_CROSS_PYTHON_VERSION="3.10"
+#        export PYO3_CROSS_LIB_DIR="${WORKDIR}/recipe-sysroot/usr/lib/python3.10/"
+#}
