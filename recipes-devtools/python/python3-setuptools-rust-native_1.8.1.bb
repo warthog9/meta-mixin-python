@@ -23,3 +23,5 @@ RDEPENDS:${PN}:class-native += " \
     python3-typing-extensions-native \
     python3-wheel-native \
 "
+
+BBCLASSEXTEND = "native nativesdk"
