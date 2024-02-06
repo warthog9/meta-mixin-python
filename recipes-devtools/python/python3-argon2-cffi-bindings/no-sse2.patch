@@ -1,0 +1,29 @@
+diff -uNr argon2-cffi-bindings-21.1.0.orig/setup.py argon2-cffi-bindings-21.1.0/setup.py
+--- argon2-cffi-bindings-21.1.0.orig/setup.py	2021-11-28 09:12:12.000000000 +0000
++++ argon2-cffi-bindings-21.1.0/setup.py	2023-12-09 05:06:47.907994635 +0000
+@@ -27,15 +27,8 @@
+ 
+ HERE = Path(__file__).parent.resolve()
+ 
+-use_sse2 = os.environ.get("ARGON2_CFFI_USE_SSE2", None)
+-if use_sse2 == "1":
+-    optimized = True
+-elif use_sse2 == "0":
+-    optimized = False
+-else:
+-    # Optimized version requires SSE2 extensions.  They have been around since
+-    # 2001 so we try to compile it on every recent-ish x86.
+-    optimized = platform.machine() in ("i686", "x86", "x86_64", "AMD64")
++use_sse2 = "0"
++optimized = False
+ 
+ CFFI_MODULES = ["src/_argon2_cffi_bindings/_ffi_build.py:ffi"]
+ 
+@@ -297,7 +290,6 @@
+             include_dirs = build_info.get("include_dirs")
+             objects = self.compiler.compile(
+                 sources,
+-                extra_preargs=["-msse2"] if optimized and not windows else [],
+                 output_dir=self.build_temp,
+                 macros=macros,
+                 include_dirs=include_dirs,
