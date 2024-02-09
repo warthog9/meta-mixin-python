@@ -1,7 +1,7 @@
 SUMMARY = "Composable command line interface toolkit"
 HOMEPAGE = "https://palletsprojects.com/p/click/"
 AUTHOR = "Pallets Projects"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.rst;md5=1fa98232fd645608937a0fdc82e999b8"
 
 SRC_URI[md5sum] = "7c3b52c56fd30699f453a7dc7b42cecb"

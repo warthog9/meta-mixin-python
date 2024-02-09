@@ -3,7 +3,7 @@ inherit python_hatchling
 SUMMARY = "The little ASGI library that shines."
 HOMEPAGE = ""
 AUTHOR = " <Tom Christie <tom@tomchristie.com>>"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=11e8c8dbfd5fa373c703de492140ff7a"
 
 SRC_URI = "https://files.pythonhosted.org/packages/e1/4b/fcd426d9477554d31dacb0c8069828466841b69ad26c8cfab9c5321830ec/starlette-0.31.1.tar.gz"

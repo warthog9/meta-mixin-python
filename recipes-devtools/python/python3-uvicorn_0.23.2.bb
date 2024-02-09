@@ -1,7 +1,7 @@
 SUMMARY = "The lightning-fast ASGI server."
 HOMEPAGE = "https://www.uvicorn.org/"
 AUTHOR = " Tom Christie <tom@tomchristie.com>"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=5c778842f66a649636561c423c0eec2e"
 
 SRC_URI[md5sum] = "bd20bba1da2983599522bf1e4015a583"

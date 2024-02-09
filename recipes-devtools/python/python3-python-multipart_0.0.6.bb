@@ -1,7 +1,7 @@
 SUMMARY = "A streaming multipart parser for Python"
 HOMEPAGE = "https://github.com/andrew-d/python-multipart"
 SECTION = "devel/python"
-LICENSE = "Apache"
+LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3d98f0d58b28321924a89ab60c82410e"
 
 SRC_URI[sha256sum] = "e9925a80bb668529f1b67c7fdb0a5dacdd7cbfc6fb0bff3ea443fe22bdd62132"

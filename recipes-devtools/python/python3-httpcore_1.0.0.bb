@@ -1,7 +1,7 @@
 SUMMARY = "A minimal low-level HTTP client."
 HOMEPAGE = ""
 AUTHOR = " <Tom Christie <tom@tomchristie.com>>"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=1c1f23b073da202e1f4f9e426490210c"
 
 SRC_URI[md5sum] = "993e8a2cf2f57f75068d5aed42055576"

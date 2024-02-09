@@ -1,6 +1,6 @@
 SUMMARY = "Backported and Experimental Type Hints for Python 3.8+"
 HOMEPAGE = "https://github.com/python/typing_extensions"
-LICENSE = "Python Software Foundation License"
+LICENSE = "PSF-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fcf6b249c2641540219a727f35d8d2c2"
 
 PYPI_PACKAGE = "typing_extensions"
