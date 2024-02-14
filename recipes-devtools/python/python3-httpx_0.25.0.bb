@@ -1,7 +1,7 @@
 SUMMARY = "The next generation HTTP client."
 HOMEPAGE = ""
 AUTHOR = " <Tom Christie <tom@tomchristie.com>>"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=c624803bdf6fc1c4ce39f5ae11d7bd05"
 
 SRC_URI[md5sum] = "f4c89d0917405c82edc95df52d503003"
